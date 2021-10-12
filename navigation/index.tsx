@@ -18,10 +18,12 @@ import Colors from '../constants/Colors'
 import useColorScheme from '../hooks/useColorScheme'
 import NotFoundScreen from '../screens/NotFoundScreen'
 import HomeScreen from '../screens/HomeScreen'
+import AlbumScreen from '../screens/AlbumScreen'
 import {
   RootStackParamList,
   RootTabParamList,
   RootTabScreenProps,
+  HomeScreenStackParamList,
 } from '../types'
 import LinkingConfiguration from './LinkingConfiguration'
 
@@ -73,9 +75,9 @@ function BottomTabNavigator() {
     >
       <BottomTab.Screen
         name='Home'
-        component={HomeScreen}
-        options={({ navigation }: RootTabScreenProps<'Home'>) => ({
-          title: 'Home',
+        component={HomeNavigator}
+        options={() => ({
+          headerShown: false,
           tabBarIcon: ({ color }) => (
             <Entypo
               name='home'
@@ -134,3 +136,21 @@ function BottomTabNavigator() {
     </BottomTab.Navigator>
   )
 }
+
+const HomeStack = createNativeStackNavigator<HomeScreenStackParamList>()
+
+const HomeNavigator = () => (
+  <HomeStack.Navigator>
+    <HomeStack.Screen
+      name='HomeScreen'
+      component={HomeScreen}
+      options={{ headerTitle: 'Home' }}
+    />
+
+    <HomeStack.Screen
+      name='AlbumScreen'
+      component={AlbumScreen}
+      options={{ headerTitle: 'Album' }}
+    />
+  </HomeStack.Navigator>
+)

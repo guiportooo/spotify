@@ -5,11 +5,22 @@ import AlbumCategoryComponent from '../components/AlbumCategory'
 import albumCategories from '../data/albumCategories'
 
 export default function HomeScreen({ navigation }: RootTabScreenProps<'Home'>) {
+  const onPress = (id: string) => {
+    console.warn('Album pressed: ', id)
+    navigation.navigate('Home', {
+      screen: 'AlbumScreen',
+      params: {
+        id: id,
+      },
+    })
+  }
   return (
     <View style={styles.container}>
       <FlatList
         data={albumCategories}
-        renderItem={({ item }) => <AlbumCategoryComponent {...item} />}
+        renderItem={({ item }) => (
+          <AlbumCategoryComponent {...item} onPress={onPress} />
+        )}
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
       />

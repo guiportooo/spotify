@@ -8,14 +8,20 @@ export type AlbumCategoryProps = {
   id: string
   title: string
   albums: Album[]
+  onPress: (id: string) => void
 }
 
-const AlbumCategoryComponent = ({ id, title, albums }: AlbumCategoryProps) => (
+const AlbumCategoryComponent = ({
+  id,
+  title,
+  albums,
+  onPress,
+}: AlbumCategoryProps) => (
   <View style={styles.container}>
     <Text style={styles.title}>{title}</Text>
     <FlatList
       data={albums}
-      renderItem={({ item }) => <AlbumComponent {...item} />}
+      renderItem={({ item }) => <AlbumComponent {...item} onPress={onPress} />}
       keyExtractor={(item) => item.id}
       horizontal
       showsHorizontalScrollIndicator={false}

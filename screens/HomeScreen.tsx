@@ -6,7 +6,6 @@ import albumCategories from '../data/albumCategories'
 
 export default function HomeScreen({ navigation }: RootTabScreenProps<'Home'>) {
   const onPress = (id: string) => {
-    console.warn('Album pressed: ', id)
     navigation.navigate('Home', {
       screen: 'AlbumScreen',
       params: {

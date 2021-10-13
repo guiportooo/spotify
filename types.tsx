@@ -52,6 +52,11 @@ export type Album = {
   artistsHeadline: string
 }
 
+export interface AlbumDetails extends Album {
+  title: string
+  numberOfLikes: string
+}
+
 export type Song = {
   id: string
   imageUri: string

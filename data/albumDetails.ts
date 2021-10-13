@@ -3,9 +3,8 @@ export default {
   imageUri:
     'https://cache.boston.com/resize/bonzai-fba/Globe_Photo/2011/04/14/1302796985_4480/539w.jpg',
   artistsHeadline: 'Taylor Swift, Kygo Objective C, Avicii',
-  name: 'Good vibes',
-  by: 'Spotify',
-  numberOfLikes: 23.503,
+  title: 'Good vibes',
+  numberOfLikes: '23.5K',
   songs: [
     {
       id: '1',
